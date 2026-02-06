@@ -1,0 +1,491 @@
+
+
+<link href="https://fonts.cdnfonts.com/css/cormorant-2" rel="stylesheet">
+        <link href="https://fonts.cdnfonts.com/css/open-sans" rel="stylesheet">
+            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+            <script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>            
+<section class="custom-hero">
+    <div class="container">
+  <div class="custom-hero__inner">
+    <!-- Left Content -->
+    <div class="custom-hero__content">
+        {% if section.settings.heading != blank %}
+      <h1>{{ section.settings.heading }}</h1>
+{% endif  %}
+      <p class="custom-hero__desc">
+        {{ section.settings.description }}
+      </p>
+
+      {% if section.settings.button_label != blank %}
+        <a href="{{ section.settings.button_link }}" class="custom-hero__btn">
+          {{ section.settings.button_label }}
+        </a><br>
+      {% endif %}
+
+      {% if section.settings.sub_text != blank %}
+        <div class="custom_line_text">
+        <div class="custom-hero__subtext">
+          {{ section.settings.sub_text }}
+        </div>
+        </div>
+      {% endif %}
+    </div>
+
+    <!-- Right Image -->
+    <div class="custom-hero__image">
+      {% if section.settings.image != blank %}
+        <img
+          src="{{ section.settings.image | image_url: width: 900 }}"
+          alt="{{ section.settings.image.alt | escape }}"
+          loading="lazy"
+        >
+      {% endif %}
+    </div>
+  </div>
+<div class="divider"></div>
+  <!-- Testimonial -->
+<div class="testimonial_wrapper">
+   <div  class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+{% for block in section.blocks %}
+
+                <div class="swiper-slide">
+  <div class="custom-hero__testimonial">
+    <p class="testimonial-text">
+      “{{ block.settings.testimonial_text }}”
+    </p>
+
+    <div class="testimonial-meta">
+      <span class="stars"><svg xmlns="http://www.w3.org/2000/svg" width="74" height="14" viewBox="0 0 74 14" fill="none">
+<g clip-path="url(#clip0_2_88)">
+<path d="M7 0L8.5716 4.83688H13.6574L9.5429 7.82624L11.1145 12.6631L7 9.67376L2.8855 12.6631L4.4571 7.82624L0.342604 4.83688H5.4284L7 0Z" fill="black" fill-opacity="0.8"/>
+<path d="M22 0L23.5716 4.83688H28.6574L24.5429 7.82624L26.1145 12.6631L22 9.67376L17.8855 12.6631L19.4571 7.82624L15.3426 4.83688H20.4284L22 0Z" fill="black" fill-opacity="0.8"/>
+<path d="M37 0L38.5716 4.83688H43.6574L39.5429 7.82624L41.1145 12.6631L37 9.67376L32.8855 12.6631L34.4571 7.82624L30.3426 4.83688H35.4284L37 0Z" fill="black" fill-opacity="0.8"/>
+<path d="M52 0L53.5716 4.83688H58.6574L54.5429 7.82624L56.1145 12.6631L52 9.67376L47.8855 12.6631L49.4571 7.82624L45.3426 4.83688H50.4284L52 0Z" fill="black" fill-opacity="0.8"/>
+<path d="M67 0L68.5716 4.83688H73.6574L69.5429 7.82624L71.1145 12.6631L67 9.67376L62.8855 12.6631L64.4571 7.82624L60.3426 4.83688H65.4284L67 0Z" fill="black" fill-opacity="0.8"/>
+</g>
+<defs>
+<clipPath id="clip0_2_88">
+<rect width="74" height="14" fill="white"/>
+</clipPath>
+</defs>
+</svg></span>
+<span class="star_icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="7" viewBox="0 0 8 7" fill="none">
+<path d="M8 5.255V1.77641C7.04201 2.35992 5.93132 2.72257 4.7707 2.8308C4.9023 1.81111 5.32695 0.837217 6.00501 0H2.02991C2.6967 0.838344 3.11111 1.81032 3.23478 2.82599C2.06957 2.71081 0.956695 2.3392 0 1.74582V5.22447C0.95799 4.64096 2.06868 4.27832 3.2293 4.17009C3.09754 5.18947 2.6729 6.16304 1.99499 7H5.97009C5.30344 6.16189 4.88905 5.19022 4.76522 4.17483C5.93043 4.29001 7.04331 4.66162 8 5.255Z" fill="#9333EA"/>
+</svg>
+    </span>
+      <span class="author">
+        {{ block.settings.testimonial_author }}
+         </span>
+         <span class="star_icon">
+    <svg xmlns="http://www.w3.org/2000/svg" width="8" height="7" viewBox="0 0 8 7" fill="none">
+<path d="M8 5.255V1.77641C7.04201 2.35992 5.93132 2.72257 4.7707 2.8308C4.9023 1.81111 5.32695 0.837217 6.00501 0H2.02991C2.6967 0.838344 3.11111 1.81032 3.23478 2.82599C2.06957 2.71081 0.956695 2.3392 0 1.74582V5.22447C0.95799 4.64096 2.06868 4.27832 3.2293 4.17009C3.09754 5.18947 2.6729 6.16304 1.99499 7H5.97009C5.30344 6.16189 4.88905 5.19022 4.76522 4.17483C5.93043 4.29001 7.04331 4.66162 8 5.255Z" fill="#9333EA"/>
+</svg>
+    </span>
+    <span class="date_text">
+    {{ block.settings.testimonial_date }}
+    </span>
+     
+    </div>
+  </div>
+</div>
+{% endfor %}
+
+</div>
+    <div class="swiper-button-next"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+<rect x="0.5" y="0.5" width="31" height="31" stroke="black"/>
+<path d="M15.9948 11.293C16.0096 11.2931 16.0162 11.2956 16.0192 11.2969C16.0226 11.2983 16.0329 11.303 16.0495 11.3193L20.6794 15.9492V15.9502C20.6969 15.9679 20.704 15.9783 20.7057 15.9814V15.9824C20.7071 15.9857 20.7087 15.9907 20.7087 16.001C20.7086 16.0109 20.7077 16.0152 20.7067 16.0176L20.7057 16.0186C20.704 16.0216 20.6981 16.0317 20.6823 16.0479L16.0466 20.6797C16.0273 20.6988 16.0151 20.7044 16.0114 20.7061C16.009 20.7071 16.0048 20.709 15.9948 20.709C15.9896 20.709 15.9869 20.7082 15.986 20.708H15.9841L15.9567 20.6855L15.9518 20.6807C15.9354 20.6641 15.931 20.6548 15.9304 20.6533C15.9299 20.6523 15.9284 20.6483 15.9284 20.6367C15.9284 20.625 15.93 20.621 15.9304 20.6201L15.9518 20.5928L20.4772 16.0674H11.1345C11.1099 16.0673 11.0991 16.0636 11.0964 16.0625L11.0827 16.0527L11.072 16.0391C11.0711 16.0368 11.0671 16.0257 11.0671 16C11.0671 15.9743 11.0711 15.9632 11.072 15.9609L11.0827 15.9473C11.0906 15.9394 11.0948 15.9381 11.0964 15.9375C11.0991 15.9364 11.1099 15.9327 11.1345 15.9326H20.4772L19.6237 15.0781L15.9557 11.4111C15.9393 11.3947 15.9345 11.3846 15.9333 11.3818C15.9322 11.3794 15.9305 11.3734 15.9304 11.3594C15.9303 11.3525 15.9309 11.3479 15.9313 11.3457C15.9317 11.3437 15.9319 11.3418 15.9323 11.3408C15.9331 11.3389 15.9371 11.3303 15.9518 11.3154L15.9528 11.3145C15.9686 11.2987 15.9775 11.2952 15.9782 11.2949C15.979 11.2946 15.9804 11.2943 15.9821 11.2939C15.9842 11.2936 15.9882 11.2929 15.9948 11.293Z" fill="black" stroke="black"/>
+</svg></div>
+    <div class="swiper-button-prev"><svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" fill="none">
+<rect x="-0.5" y="0.5" width="31" height="31" transform="matrix(-1 0 0 1 31 0)" stroke="black"/>
+<path d="M16.0049 11.293C15.9901 11.2931 15.9835 11.2956 15.9805 11.2969C15.9771 11.2983 15.9668 11.303 15.9502 11.3193L11.3203 15.9492V15.9502C11.3028 15.9679 11.2957 15.9783 11.2939 15.9814V15.9824C11.2926 15.9857 11.291 15.9907 11.291 16.001C11.2911 16.0109 11.292 16.0152 11.293 16.0176L11.2939 16.0186C11.2957 16.0216 11.3016 16.0317 11.3174 16.0479L15.9531 20.6797C15.9724 20.6988 15.9846 20.7044 15.9883 20.7061C15.9907 20.7071 15.9949 20.709 16.0049 20.709C16.0101 20.709 16.0128 20.7082 16.0137 20.708H16.0156L16.043 20.6855L16.0479 20.6807C16.0643 20.6641 16.0687 20.6548 16.0693 20.6533C16.0698 20.6523 16.0713 20.6483 16.0713 20.6367C16.0713 20.625 16.0697 20.621 16.0693 20.6201L16.0479 20.5928L11.5225 16.0674H20.8652C20.8898 16.0673 20.9006 16.0636 20.9033 16.0625L20.917 16.0527L20.9277 16.0391C20.9286 16.0368 20.9326 16.0257 20.9326 16C20.9326 15.9743 20.9286 15.9632 20.9277 15.9609L20.917 15.9473C20.9091 15.9394 20.9049 15.9381 20.9033 15.9375C20.9006 15.9364 20.8898 15.9327 20.8652 15.9326H11.5225L12.376 15.0781L16.0439 11.4111C16.0604 11.3947 16.0652 11.3846 16.0664 11.3818C16.0675 11.3794 16.0692 11.3734 16.0693 11.3594C16.0694 11.3525 16.0688 11.3479 16.0684 11.3457C16.068 11.3437 16.0678 11.3418 16.0674 11.3408C16.0666 11.3389 16.0626 11.3303 16.0479 11.3154L16.0469 11.3145C16.0311 11.2987 16.0222 11.2952 16.0215 11.2949C16.0207 11.2946 16.0193 11.2943 16.0176 11.2939C16.0155 11.2936 16.0115 11.2929 16.0049 11.293Z" fill="black" stroke="black"/>
+</svg></div>
+    <div class="swiper-pagination"></div>
+</div>
+</div>
+
+
+
+
+
+  </div>
+</section>
+
+<style>
+ .custom-hero span.swiper-pagination-bullet {
+    background: #000;
+}
+
+.custom-hero  .swiper-button-next {
+    background: transparent;
+}
+.custom-hero .swiper-button-next svg {
+    fill: transparent;
+}
+.custom-hero .swiper-button-prev svg {
+    fill: transparent;
+}
+
+.custom-hero .swiper-button-prev.swiper-button-disabled {
+    display: none;
+}
+
+.custom-hero .swiper-button-next.swiper-button-disabled {
+    display: none;
+}
+
+.custom-hero .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets.swiper-pagination-horizontal {
+    position: unset;
+}
+ .custom-hero .testimonial_wrapper {
+    width: 100%;
+    max-width: 850px;
+    margin: 0 auto;
+}
+    .custom-hero .divider {
+    width: 100%;
+    background: #000;
+    height: 1px;
+    max-width: 850px;
+    margin: 0 auto;
+    display: flex !important;
+    justify-content: center;
+    align-items: center;
+}
+.custom-hero {
+  padding: 64px 0;
+  {% if section.settings.bg_image != blank %}
+  background-image: url('{{ section.settings.bg_image | image_url }}');
+  {% endif %}
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.custom-hero .container {
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+.custom-hero__inner {
+ 
+
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 40px;
+  align-items: center;
+  padding-bottom:48px;
+}
+
+.custom-hero__content h1 {
+    font-family: Cormorant;
+    font-weight: 700;
+    font-style: Bold;
+    font-size: 56px;
+    leading-trim: NONE;
+    line-height: 120%;
+    letter-spacing: 0.2px;
+    background: linear-gradient(90deg, #9333EA 0%, #2563EB 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    color: transparent;
+    margin: 0 0 24px;
+}
+
+.custom-hero__desc {
+    font-family: Open Sans;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 20px;
+    leading-trim: NONE;
+    line-height: 129%;
+    letter-spacing: 0%;
+    color: #000000CC;
+    margin: 0 0 32px;
+}
+
+.custom-hero__btn {
+    display: inline-block;
+    color: #fff;
+    padding: 12px 22px;
+    border-radius: 0;
+    text-decoration: none;
+    background: linear-gradient(90deg, #9333EA 0%, #2563EB 100%);
+    font-family: Open Sans;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 16px;
+    leading-trim: NONE;
+    line-height: 155%;
+    letter-spacing: 0.6px;
+    width: 100%;
+    max-width: 131px;
+}
+
+.custom-hero__subtext {
+   
+    font-family: "Open Sans", sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    line-height: 129%;
+    text-transform: capitalize;
+    color: #000;
+    margin: 16px 0 0;
+    display: inline-block;
+    border-bottom: 1px solid #000;
+}
+
+
+.custom-hero__image img {
+  width: 100%;
+  object-fit: cover;
+}
+
+/* Testimonial */
+.custom-hero__testimonial {
+    max-width: 724px;
+    padding-top: 48px;
+    text-align: center;
+    margin: 0 auto;
+}
+.testimonial-text {
+    font-family: Open Sans, sans-serif;
+    font-weight: 600;
+    font-style: SemiBold;
+    font-size: 22px;
+    leading-trim: NONE;
+    line-height: 155%;
+    letter-spacing: 0.6px;
+    text-align: center;
+    color: #000;
+    margin: 0 0 16px;
+}
+
+
+
+span.star_icon {
+    line-height: 100%;
+    font-size: 0;
+}
+
+
+
+.testimonial-meta {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
+}
+
+
+span.author, span.date_text {
+    font-family: Open Sans, sans-serif;
+    font-weight: 400;
+    font-style: Regular;
+    font-size: 14px;
+    leading-trim: NONE;
+    line-height: 155%;
+    letter-spacing: 0.6px;
+    color: #000;
+}
+
+@media(max-width:1220px){
+.custom-hero__content h1 {
+    line-height: 76%;
+}
+}
+/* Mobile */
+@media (max-width: 768px) {
+    .custom-hero .swiper-button-prev {
+display:none;
+}
+ .custom-hero {
+        padding: 48px 0;
+          {% if section.settings.mob_image != blank %}
+          background-image: url('{{ section.settings.mob_image | image_url }}');
+          {% endif %}
+    }
+  .custom-hero__inner {
+    grid-template-columns: 1fr;
+    text-align: left;
+  }
+
+     .custom-hero__content h1 {
+        width: 100%;
+        max-width: 316px;
+        margin: 0 auto 12px;
+    }
+
+  .custom-hero__image {
+    margin-top: 24px;
+  }
+
+  .custom-hero__desc {
+    text-align: center;
+    width: 100%;
+    max-width: 343px;
+    margin: 0 auto;
+}
+
+.custom-hero__btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    max-width: 131px;
+    margin: 24px auto 0;
+}
+
+.testimonial-text {
+    font-size: 18px;
+    line-height: 155%;
+  
+}
+.custom-hero__inner {
+
+    gap: 0px;
+    align-items: center;
+    padding-bottom: 24px;
+}
+
+.custom-hero__subtext {
+   
+    margin: 0;
+ 
+}
+.custom_line_text {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.custom-hero__testimonial {
+    max-width: 343px;
+   
+}
+.custom-hero .swiper-button-next {
+    display: none;
+}
+.testimonial-text {
+    margin: 0 0 6px;
+}
+.custom-hero__testimonial {
+    padding-top: 24px;
+}
+
+    .custom-hero__content h1 {
+        line-height: 120%;
+    }
+}
+</style>
+  <script>
+    var swiper = new Swiper(".mySwiper", {
+      lazy: true,
+      pagination: {
+        el: ".swiper-pagination",
+        clickable: true,
+      },
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+    });
+  </script>
+{% schema %}
+{
+  "name": " Hero with Testimonial",
+    "max_blocks": 5,
+  "settings": [
+    {
+    "type": "image_picker",
+    "id":"bg_image",
+    "label": "Select Background Image"
+    },
+     {
+    "type": "image_picker",
+    "id":"mob_image",
+    "label": "Select Mobile Background Image"
+    },
+    {
+      "type": "text",
+      "id": "heading",
+      "label": "Heading",
+      "default": "Lorem ipsum dolor sit amet"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut."
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "label": "Button Label",
+      "default": "Shop Now"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "Button Link"
+    },
+    {
+      "type": "text",
+      "id": "sub_text",
+      "label": "Below Button Text",
+      "default": "Over 100,000+ Happy Customers"
+    },
+    {
+      "type": "image_picker",
+      "id": "image",
+      "label": "Right Image"
+    },
+    
+  ],
+  "blocks": [
+    {
+    "type": "testimonial",
+    "name":"Testimonail",
+    "settings": [
+        {
+      "type": "textarea",
+      "id": "testimonial_text",
+      "label": "Testimonial Text",
+      "default": "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor."
+    },
+    {
+      "type": "text",
+      "id": "testimonial_author",
+      "label": "Author",
+      "default": "Lorem Ipsum"
+    },
+    {
+      "type": "text",
+      "id": "testimonial_date",
+      "label": "Date",
+      "default": "22/09/1996"
+    }
+    ]
+    
+    }
+  ],
+  
+  "presets": [
+    {
+      "name": "Hero with Testimonial",
+      "blocks": [
+      { "type": "testimonial" },
+      { "type": "testimonial" },
+      { "type": "testimonial" },
+      { "type": "testimonial" },
+      { "type": "testimonial" }
+    ]
+    }
+  ]
+}
+{% endschema %}
